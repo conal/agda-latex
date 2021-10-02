@@ -1,56 +1,13 @@
-\newif\iftalk
-\newif\ifacm
+\documentclass{article}  %% large while editing
+\RequirePackage{ agda, tikz-cd, amssymb, catchfilebetweentags
+               , newunicodechar , datetime2, geometry, relsize, xcolor
+               , caption, subcaption, natbib }
 
-%% \acmtrue
+%% Currently unused: , amssymb, stmaryrd, setspace, comment, scalerel
 
-\ifacm
-\documentclass[acmsmall,screen,timestamp]{acmart}  % ,anonymous,review
-\else
-\documentclass[acmsmall,screen,timestamp,nonacm]{acmart}
-\fi
-\authorsaddresses{}
+\geometry{margin=1in} % 1in to share, and 0.2 to preview
 
-\usepackage{catchfilebetweentags}
-
-\RequirePackage{newunicodechar, stmaryrd, setspace, comment, scalerel}
-
-\input{commands}
-\input{unicode}
 \input{macros}
-
-\definecolor{mylinkcolor}{rgb}{0,0.2,0}
-\hypersetup{
-  linkcolor  = mylinkcolor,
-  citecolor  = mylinkcolor,
-  urlcolor   = mylinkcolor,
-  colorlinks = true, % false
-}
-
-\bibliographystyle{ACM-Reference-Format}
-\citestyle{acmauthoryear}
-\setcitestyle{nosort}
-
-%% I prefer ∅ in XITSMath-Regular, but I don't know how to make setmathfont
-%% work with acmart.
-\newunicodechar{◇}{\raisebox{0.02ex}{\ensuremath{_{\diamond}\hspace{-0.323em}}}}
-\newunicodechar{□}{\raisebox{-0.12ex}{\ensuremath{\scaleobj{0.4}{\Box}}\hspace{-0.238em}}}
-
-\usepackage{libertine}  %% [tt=false]
-\usepackage{agda}% references
-
-%% I think acmart minimizes these two.
-
-%% Switching to \textsf for AgdaFunction messes up vertical alignment.
-%% \newcommand{\AgdaFontStyle}[1]{\textsf{#1}}
-
-%% \renewcommand{\AgdaFontStyle}[1]{\text{#1}}
-
-%% \renewcommand{\AgdaFunction}[1]
-%%     {\AgdaNoSpaceMath{\text{\textcolor{AgdaFunction}{\AgdaFormat{#1}{\AgdaLink{#1}}}}}}
-%% \renewcommand{\AgdaRecord}[1]
-%%     {\AgdaNoSpaceMath{\text{\textcolor{AgdaRecord}{\AgdaFormat{#1}{\AgdaLink{#1}}}}}}
-
-%% \rnc\AgdaTarget[1]{}
 
 \author{Conal Elliott}
 
@@ -66,16 +23,17 @@
 \title{\tit}
 \date{Version of \DTMnow{} GMT-8}
 
-\begin{abstract}
-...
-\end{abstract}
-
 \maketitle
 \mathindent2em
+
+%% \begin{abstract}
+%% ...
+%% \end{abstract}
 
 \sectionl{Introduction}
 \rnc\source{Introduction}
 
-\bibliography{bib}
+%% \bibliographystyle{plainnat}
+%% \bibliography{bib}
 
 \end{document}
