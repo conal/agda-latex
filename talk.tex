@@ -8,6 +8,10 @@
 %% \documentclass[aspectratio=43]{beamer}
 \documentclass[aspectratio=169]{beamer}
 
+\RequirePackage{ agda, tikz-cd, amssymb, catchfilebetweentags
+               , newunicodechar , datetime2, geometry, relsize, xcolor
+               , caption, subcaption, natbib }
+
 \usetheme[
   % block=fill,
   % background=light,
@@ -17,26 +21,13 @@
 ]{metropolis}%Warsaw,Madrid
 \setbeamersize{text margin left=.5cm,text margin right=.5cm}
 
-\usepackage{catchfilebetweentags}
-\usepackage[useregional]{datetime2}
-
-\RequirePackage{newunicodechar, amssymb, stmaryrd, unicode-math, setspace, comment}
-
 %% \renewcommand\alert[1]{\textcolor{mLightBrown}{#1}}
 
-\input{commands}
-\input{unicode}
 \input{macros}
 
-\usepackage{libertine}  %% [tt=false]
-\usepackage{agda}% references
+%% \usepackage{libertine}  %% [tt=false]
 
-\setmathfont{XITSMath-Regular.otf}
-\newunicodechar{◇}{\raisebox{0.23ex}{\ensuremath{_{\diamond}\hspace{-0.352em}}}}
-\newunicodechar{□}{\raisebox{-0.13ex}{\ensuremath{\scaleobj{0.3}{\Box}}\hspace{-0.23em}}}
-\newunicodechar{∷}{\ensuremath{\mathbin{\hspace{-0.2em}:\hspace{-0.27em}:\hspace{-0.15em}}}}
-
-%% \renewcommand{\AgdaFontStyle}[1]{\text{#1}}
+%% \setmathfont{XITSMath-Regular.otf}
 
 %----------------------------------------------------------------------------
 

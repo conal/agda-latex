@@ -1,7 +1,8 @@
-\RequirePackage{xcolor}
-
 \newcommand\nc\newcommand
 \nc\rnc\renewcommand
+
+\input{commands}
+\input{unicode}
 
 \nc\out[1]{}
 
@@ -83,6 +84,12 @@
 % Arguments: label, caption, body
 \nc\figrefdef[3]{\figref{#1}\figdef{#1}{#2}{#3}}
 
+\nc\picfile[1]{../Figures/#1.pdf}
+
+\nc\incpicW[2]{\includegraphics[width=#1\linewidth]{\picfile{#2}}}
+\nc\incpic{\incpicW{0.7}}
+%% \nc\incpic[1]{\includegraphics[width=0.7\linewidth]{\picfile{#1}}}
+
 \usepackage{hyperref}
 
 \nc\stdlibCitet[1]{\citet[\AM{#1}]{agda-stdlib}}
@@ -100,8 +107,3 @@
 \nc\source{None}
 
 \nc\agda[1]{\ExecuteMetaData[\source.tex]{#1}}
-
-%% \nc\agda[1]{\begin{samepage}\ExecuteMetaData[\source.tex]{#1}\end{samepage}}
-
-%% %% Used in bib.bib.
-%% \nc\repoURL{\url{https://github.com/conal/paper-2021-language-derivatives}}
