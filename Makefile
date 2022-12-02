@@ -15,7 +15,7 @@ LATEX_DEPENDENCIES:= \
   latex/bib.bib \
   latex/macros.tex \
   latex/unicode.tex \
-  latex/commands.tex \
+  latex/agda-commands.tex \
   $(AGDA_DEPENDENCIES)
 
 test :
