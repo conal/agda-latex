@@ -1,27 +1,49 @@
-\documentclass{article}  %% large while editing
-\RequirePackage{ agda, tikz-cd, amssymb, catchfilebetweentags
-               , newunicodechar , datetime2, geometry, relsize, xcolor
-               , caption, subcaption, natbib }
+\documentclass[14pt]{extarticle}  %% large while editing
+\RequirePackage{
+ , agda
+ , amssymb
+ , caption
+ , catchfilebetweentags
+ , datetime2
+ , enumitem
+ , geometry
+ , natbib
+ , newunicodechar
+ , relsize
+ , subcaption
+ , tikz-cd
+ , xcolor
+}
 
-%% Currently unused: , amssymb, stmaryrd, setspace, comment, scalerel
+%% \setlist{noitemsep}
 
-\geometry{margin=1in} % 1in to share, and 0.2 to preview
+\geometry{margin=0.2in} % 1in to share, and 0.2 to preview
 
 \input{macros}
 
-\author{Conal Elliott}
-
-\begin{document}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor={red!40!black},
+  citecolor={red!40!black},
+  urlcolor={blue!40!black}
+}
 
 \setlength{\abovedisplayskip}{1.5ex}
 \setlength{\belowdisplayskip}{1.5ex}
 \setlength{\abovedisplayshortskip}{0ex}
 \setlength{\belowdisplayshortskip}{0ex}
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{1em}
 
-\nc\tit{Working Title}
+\author{Conal Elliott}
+
+\begin{document}
+
+\nc\tit{Working title}
 
 \title{\tit}
-\date{Version of \DTMnow{} GMT-8}
+\date{Early draft of \DTMnow{} GMT-8}
 
 \maketitle
 \mathindent2em
@@ -31,9 +53,8 @@
 %% \end{abstract}
 
 \sectionl{Introduction}
-\rnc\source{Introduction}
 
-%% \bibliographystyle{plainnat}
-%% \bibliography{bib}
 
+\bibliographystyle{plainnat}
+\bibliography{bib}
 \end{document}

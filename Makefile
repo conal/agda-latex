@@ -3,75 +3,41 @@ TALK=talk
 
 all: latex/$(PAPER).pdf latex/$(TALK).pdf
 
-MODULES:= \
-  Introduction
+src = src
 
-LAGDAS:=$(patsubst %,%.lagda,$(MODULES))
+lib-agdas:=$(shell find $(src) -name '*.agda' | grep -v 'Old/')
+lib-lagdas:=$(shell find $(src) -name '*.lagda.tex' | grep -v 'Old/')
+lib-texs:=$(patsubst $(src)/%.lagda.tex,latex/%.tex,$(lib-lagdas))
+lib-texs: $(lib-texs)
 
-AGDA_DEPENDENCIES:=$(patsubst %,latex/%.tex,$(MODULES))
-.SECONDARY: $(AGDA_DEPENDENCIES)
-
-LATEX_DEPENDENCIES:= \
-  latex/bib.bib \
-  latex/macros.tex \
-  latex/unicode.tex \
-  latex/agda-commands.tex \
-  $(AGDA_DEPENDENCIES)
-
-test :
-	echo $(LATEX_DEPENDENCIES)
+# Sanity check
+test-lib-texs:
+	@echo $(lib-texs)
 
 AGDA=agda
 
-# AGDA-EXTRAS=--only-scope-checking
+PRECIOUS: $(lib-texs)
 
-PRECIOUS: $(LATEX_DEPENDENCIES) latex/$(PAPER).tex latex/$(TALK).tex
-
-latex/%.tex: %.lagda.tex
+# LaTeX generated from literate sources
+latex/%.tex: $(src)/%.lagda.tex
 	@mkdir -p $(dir $@)
-	${AGDA} -i . --latex --latex-dir=latex $(AGDA-EXTRAS) $<
+	${AGDA} --latex --latex-dir=latex $<
 
-#  > $(basename $@).log
+latex-deps=macros.tex unicode.tex agda-commands.tex bib.bib
 
-latex/%: %
-	@mkdir -p $(dir $@)
-	cp $< $@
-
-latex/%.pdf: $(LATEX_DEPENDENCIES) latex/%.tex
-	cd latex && latexmk -xelatex -bibtex $*.tex
+latex/%.pdf: $(latex-deps) %.tex $(lib-texs) $(test-texs) $(example-texs) $(example-toks)
+	latexmk -xelatex -bibtex -output-directory=latex $*.tex
 	@touch $@
 
 # The touch is in case latexmk decides not to update the pdf.
 
-SHOWPDF=skim
-
-see: $(PAPER).see
+# For MacOS
+SHOWPDF=open
 
 %.see: latex/%.pdf
 	${SHOWPDF} $<
 
-SOURCES=$(shell find . -name '*.*agda' | grep -v Junk | grep -v _build) 
-
-source.zip: $(SOURCES) ld.agda-lib
-	zip $@ $^
+see: $(PAPER).see
 
 clean:
-	rm -r latex
-
-tags: $(SOURCES) paper.tex talk.tex
-	etags $^
-
-web: .paper-token .talk-token
-
-# Replace this definition
-DIR=XYZ
-
-NETHOME=conal@conal.net:/home/conal/domains/conal/htdocs
-
-.paper-token: latex/$(PAPER).pdf
-	scp $< $(NETHOME)/papers/$(DIR)/
-	@touch $@
-
-.talk-token: latex/$(TALK).pdf
-	scp $< $(NETHOME)/talks/$(DIR).pdf
-	@touch $@
+	rm -rf _build latex

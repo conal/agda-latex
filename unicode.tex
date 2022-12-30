@@ -1,109 +1,115 @@
-\newcommand\uni[2]{\newunicodechar{#1}{\ensuremath{#2}}}
+\nc\uni[2]{\newunicodechar{#1}{\ensuremath{#2}}}
 
 %% Remember to express horizontal movement in ems and vertical in exs and
 %% nothing in pt, to adapt to font size changes.
 
-\uni{⦃}{\{\hspace{-0.41em}\{}
-\uni{⦄}{\}\hspace{-0.41em}\}}
+\uni{⦃}{\{\hspace{-0.38em}\{}
+\uni{⦄}{\}\hspace{-0.38em}\}}
 
-\newcommand\sm[1]{\mathsf{#1}}
+\nc\sm[1]{\mathsf{#1}}
 %% \uni{ℕ}{\sm{N}}
 %% \uni{𝔹}{\sm{B}}
 %% \uni{𝔽}{\sm{F}}
 
-\uni{𝕥}{\sm{t}}
-\uni{𝕗}{\sm{f}}
-\uni{𝕫}{\sm{z}}
-\uni{𝕠}{\sm{o}}
-
 \usepackage{bm}
 \uni{ℕ}{\mathbb{N}}
-\uni{𝔹}{\mathbb{B}}
-\uni{𝔽}{\mathbb{F}}
+\uni{ℚ}{\mathbb{Q}}
 
-\uni{𝐶}{\mathit{C}}
+\usepackage{mathrsfs}
+\uni{𝒯}{\mathscr{T}}
+%% \uni{𝒯}{\mathfrak{T}}
+%% \uni{𝒯}{\mathcal{T}}
 
-\uni{μ}{\mu}
+\uni{ℓ}{\ell}
+
 \uni{⊗}{\otimes}
 \uni{×}{\times}
 \uni{∘}{\circ}
+\uni{∙}{\bullet}
 \uni{▵}{\vartriangle}
 \uni{∎}{\blacksquare}
-\uni{∙}{\bullet}
 
+\usepackage{stmaryrd}
+
+\uni{⇾}{\rightarrow}
+\uni{⇨}{\rightarrowtriangle}
+\uni{↝}{\leadsto}
+\uni{↓}{\downarrow}
+\uni{⇓}{\Downarrow}
 \uni{↑}{\uparrow}
-\uni{⇑}{\Uparrow}
-\uni{⟰}{\dot\Uparrow}
-\uni{⇉}{\rightrightarrows}
-\uni{↦}{\rightarrowtail}
-%% \Rightarrow \rightarrowtail
 
+\uni{δ}{\delta}
 \uni{λ}{\lambda}
-\uni{μ}{\mu}
-\uni{τ}{\tau}
-\uni{σ}{\sigma}
-
-\uni{ᶜ}{^c}
-\uni{ᵀ}{^T}
-\uni{≗}{\ \circeq\ }
-\uni{·}{\cdot}
-\uni{◎}{\circledcirc}
-\uni{⊕}{\oplus}
-\uni{∧}{\wedge}
-\uni{∨}{\vee}
-\uni{⊤}{\top}
-
-%% Subscripts
-\uni{₀}{_0}
-\uni{₁}{_1}
-\uni{₂}{_2}
-\uni{₃}{_3}
-\uni{₄}{_4}
-\uni{₅}{_5}
-\uni{₆}{_6}
-\uni{₇}{_7}
-\uni{₈}{_8}
-\uni{₉}{_9}
-
-\uni{ᵢ}{_i}
-\uni{ₒ}{_o}
-\uni{ₘ}{_m}
-\uni{ₙ}{_n}
-\uni{ᵣ}{_r}
-\uni{ₛ}{_s}
-
-%% Superscripts
-\uni{²}{^2}
-\uni{³}{^3}
-\uni{⁻}{\raisebox{0.6ex}{-}}
-\uni{ⁱ}{\raisebox{1ex}{\smaller i}}
-\uni{ᵒ}{\raisebox{1ex}{\smaller o}}
-\uni{ⱽ}{^v}
-\uni{ᶻ}{^z}
-\uni{ᵇ}{^b}
-\newunicodechar{ˡ}{\raisebox{0.6ex}{\smaller[4]{l}}}
-\newunicodechar{ʳ}{\raisebox{0.7ex}{\smaller r}}
-
-\uni{⊣}{\dashv}
-
-\RequirePackage{bbding}
 
 \uni{≈}{\approx}
 \uni{≡}{\equiv}
 \uni{≗}{\circeq}
+\uni{∃}{\exists}
 \uni{∀}{\forall}
+\uni{∈}{\in}
 \uni{≤}{\le}
 \uni{⊹}{\dotplus}
+\uni{◇}{\diamond}
+\uni{∅}{\varnothing}
+\uni{∩}{\cap}
+\uni{⊔}{\sqcup}
+\uni{⊓}{\sqcap}
+% \uni{⋯}{\cdots}
+\uni{⋯}{\mathop{\cdot\cdot\cdot}}
 
-\uni{⟨}{\langle}
-\uni{⟩}{\rangle}
+\uni{∧}{\wedge}
+\uni{∨}{\vee}
+\uni{⊤}{\top}
+\uni{⊥}{\bot}
 
-%%https://tex.stackexchange.com/questions/486120/using-the-unicode-prime-character-outside-math-mode-with-unicode-math-and-newuni
-\AtBeginDocument{\newunicodechar{′}{\ensuremath{'}}}
+%% Subscripts and superscripts
+\nc\subs[1]{\ensuremath{_{\scriptscriptstyle #1}}}
+\nc\sups[1]{\ensuremath{^{\scriptscriptstyle #1}}}
+
+\uni{₀}{\subs 0}
+\uni{₁}{\subs 1}
+\uni{₂}{\subs 2}
+\uni{₃}{\subs 3}
+\uni{₄}{\subs 4}
+\uni{₅}{\subs 5}
+\uni{₆}{\subs 6}
+\uni{₇}{\subs 7}
+\uni{₈}{\subs 8}
+\uni{₉}{\subs 9}
+
+%% %%https://tex.stackexchange.com/questions/486120/using-the-unicode-prime-character-outside-math-mode-with-unicode-math-and-newuni
+%% \AtBeginDocument{\newunicodechar{′}{\ensuremath{'}}}
+
+\uni{′}{\ensuremath{'}}
+\uni{″}{\ensuremath{'\hspace{-1pt}'}}
+
+\usepackage{bbding}
+\uni{✶}{\mbox{\tiny \SixStar}}
+
+\uni{✢}{\raisebox{0.75pt}{\scalebox{0.65}{+}}}
+\nc\carrot{\;\^{\;}}
+\nc\inv{\ensuremath{^{-1}}}
 
 
-%% \uni{✯}{\mathop{\mbox{\tiny \FiveStarOutlineHeavy}}}
+%% To do: perhaps remove some substitutions below, and use the following.
+\nc\SubStar[1]{\StrSubstitute{#1}{*}{\ast}}
 
-%% Invisible characters for otherwise clashing definitions.
-\newunicodechar{⇂}{}
-\newunicodechar{⇃}{}
+\nc\ehat[1]{\ensuremath{\hat{#1}}}
+\nc\edot[1]{\ensuremath{\dot{#1}}}
+\nc\etilde[1]{\ensuremath{\tilde{#1}}}
+%% \nc\etilde[1]{\~{#1}}
+
+\usepackage{xstring}
+\DeclareRobustCommand{\AgdaFormat}[2]{\IfStrEqCase{#1}{
+  {\AU{}*\AU{}}{\_{\ast}\_}
+  {0̇}{\edot{0}} {1̇}{\edot{1}}
+  {+̇}{\edot{✢}}
+  {*̇}{\edot{\ast}}
+  {+}{✢}{\AU{}+̇\AU{}}{\_\edot{✢}\_}
+  {*}{\ast}{\AU{}*̇\AU{}}{\_\edot{\ast}\_}
+  {+̃}{\etilde{✢}}{\AU{}+̃\AU{}}{\_\etilde{✢}\_}
+  {*̃}{\etilde{\ast}}{\AU{}*̃\AU{}}{\_\etilde{\ast}\_}
+  {f̃}{\etilde{f}}{x̃}{\etilde{x}}
+  {f̃⇃}{\etilde{\AFi{f}}}
+
+{}{}}[#2]}

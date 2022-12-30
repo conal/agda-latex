@@ -14,7 +14,9 @@
 %% I think \note gets defined by beamer.
 \let\note\undefined
 
-\nc\note[1]{\indraft{\textcolor{red}{#1}}}
+\definecolor{noteColor}{rgb}{0.5,0,0.3}
+
+\nc\note[1]{\indraft{\textcolor{noteColor}{#1}}}
 
 \nc\notefoot[1]{\note{\footnote{\note{#1}}}}
 
@@ -90,8 +92,6 @@
 \nc\incpic{\incpicW{0.7}}
 %% \nc\incpic[1]{\includegraphics[width=0.7\linewidth]{\picfile{#1}}}
 
-\usepackage{hyperref}
-
 \nc\stdlibCitet[1]{\citet[\AM{#1}]{agda-stdlib}}
 \nc\stdlibCitep[1]{\citep[\AM{#1}]{agda-stdlib}}
 \nc\stdlibCite\stdlibCitep
@@ -106,4 +106,16 @@
 
 \nc\source{None}
 
+\nc\twocolX[3]{\\[-1ex]
+\begin{minipage}[c]{#1\linewidth}{#2}\end{minipage}
+\begin{minipage}[c]{\linewidth}{#3}\end{minipage}\\[-1ex]}
+\nc\twocol{\twocolX{0.45}}
+
+\nc\threecolX[5]{\\[-1ex]
+\begin{minipage}[c]{#1\linewidth}{#3}\end{minipage}
+\begin{minipage}[c]{#2\linewidth}{#4}\end{minipage}
+\begin{minipage}[c]{\linewidth}{#5}\end{minipage}\\[-1ex]}
+\nc\threecol{\threecolX{0.3}{0.3}}
+
 \nc\agda[1]{\ExecuteMetaData[\source.tex]{#1}}
+\nc\agdaIn[2]{{\rnc\source{#1} \agda{#2}}}
