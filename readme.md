@@ -21,4 +21,4 @@ The Agda code should work at least with [Agda](https://github.com/agda/agda) 2.6
 *   Replace "Title Goes Here" in `macros.tex` and `readme.md`.
 *   Update Agda and agda-stdlib versions in `readme.md`.
 *   Start working on `talk.tex` and/or `paper.tex`.
-*   Build with `make`.
+
