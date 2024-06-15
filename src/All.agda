@@ -1,8 +1,6 @@
-Import other modules as a sanity check.
+-- Import other modules as a sanity check.
 
-\begin{code}
 {-# OPTIONS --safe --without-K #-}
 module All where
 
 -- import Foo
-\end{code}
